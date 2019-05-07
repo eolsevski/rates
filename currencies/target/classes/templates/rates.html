@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acounting app</title>
+</head>
+<body>
+<h3>Rates</h3>
+
+<form th:action="@{/}" action="#" method="get">
+
+
+    <p>
+        <input type="submit" value="back" />
+    </p>
+</form>
+
+<form th:action="@{/history}" action="#" method="post">
+<select name="country">
+    <option th:each="country:${countries}"
+            th:value="${country}"
+            th:text="${country}">
+
+</select>
+    <p>
+        <input type="submit" value="history" />
+    </p>
+</form>
+
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th> Currency </th>
+        <th> Rate </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rate : ${rates}">
+        <td th:text="${rate.Ccy}">currency</td>
+        <td th:text="${rate.Amt}">rate</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

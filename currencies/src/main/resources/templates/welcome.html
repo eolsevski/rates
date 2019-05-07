@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acounting app</title>
+</head>
+<body>
+    <h3>Curencies</h3>
+
+    <form th:action="@{/showCurrencies}" action="#" method="get">
+        <select>
+            <option value="LT">LT</option>
+            <option value="EU">EU</option>
+        </select>
+        <p>
+            <input type="submit" value="Show today rates" />
+        </p>
+    </form>
+
+</body>
+</html>
