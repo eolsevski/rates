@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Acounting app</title>
+    <link href="../static/css/theme.css" th:href="@{/css/theme.css}" rel="stylesheet" />
 </head>
 <body>
-<h3>history of </h3>
+<h3>History of <span th:text="${country}"></span></h3>
 
 <form th:action="@{/}" action="#" method="get">
     <p>
-        <input type="submit" value="back" />
+        <input type="submit" value="home" />
     </p>
 </form>
-
+<form th:action="@{/showCurrencies}" action="#" method="get">
+    <p>
+        <input type="submit" value="Yesterday rates" />
+    </p>
+</form>
 <table>
-    <thead>
-    <tr>
-        <th> Rate </th>
-        <th> Date </th>
-    </tr>
-    </thead>
     <tbody>
+    <th> Rate </th>
+    <th> Date </th>
     <tr th:each="result : ${results}">
         <td th:text="${result.value}">date</td>
         <td th:text="${result.key}">rate</td>

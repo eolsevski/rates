@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Acounting app</title>
+    <link href="../static/css/theme.css" th:href="@{/css/theme.css}" rel="stylesheet" />
 </head>
 <body>
 <h3>Rates</h3>
 
 <form th:action="@{/}" action="#" method="get">
-
-
     <p>
-        <input type="submit" value="back" />
+        <input type="submit" value="Home" />
     </p>
 </form>
 
@@ -22,24 +21,16 @@
     <option th:each="country:${countries}"
             th:value="${country}"
             th:text="${country}">
-
 </select>
     <p>
         <input type="submit" value="history" />
     </p>
 </form>
 
-
-
-
 <table>
-    <thead>
-    <tr>
-        <th> Currency </th>
-        <th> Rate </th>
-    </tr>
-    </thead>
     <tbody>
+    <th> Currency </th>
+    <th> Rate </th>
     <tr th:each="rate : ${rates}">
         <td th:text="${rate.Ccy}">currency</td>
         <td th:text="${rate.Amt}">rate</td>

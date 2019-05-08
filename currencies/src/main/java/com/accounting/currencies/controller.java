@@ -12,6 +12,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.accounting.currencies.Services.DateService.today;
+import static com.accounting.currencies.Services.DateService.yesterday;
 
 
 @Controller
@@ -34,7 +35,7 @@ public class controller {
     @GetMapping("/showCurrencies")
     private ModelAndView showTodayCurrencies( ) {
 
-        String dt=today();
+        String dt=yesterday();
 
         List<FxRate> rates = (List<FxRate>)fxRateRepository.findAll();
 
@@ -73,10 +74,9 @@ public class controller {
                                 (Dt1,Dt2)->{return Dt1;}
                                 ));
 
-        System.out.println(result);
         Map<String, Object> params = new HashMap<>();
         params.put("results", result);
-//        params.put("country", country);
+        params.put("country", country);
 
         return new ModelAndView("history", params);
     }
