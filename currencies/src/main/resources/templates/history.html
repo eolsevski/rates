@@ -10,16 +10,18 @@
 <body>
 <h3>History of <span th:text="${country}"></span></h3>
 
+
 <form th:action="@{/}" action="#" method="get">
     <p>
         <input type="submit" value="home" />
     </p>
 </form>
-<form th:action="@{/showCurrencies}" action="#" method="get">
+<form th:action="@{/showCurrencies}" action="#" method="post">
     <p>
         <input type="submit" value="Yesterday rates" />
     </p>
 </form>
+
 <table>
     <tbody>
     <th> Rate </th>

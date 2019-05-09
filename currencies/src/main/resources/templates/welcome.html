@@ -10,15 +10,40 @@
 <body>
     <h3>Curencies</h3>
 
-    <form th:action="@{/showCurrencies}" action="#" method="get">
-        <select>
-            <option value="LT">LT</option>
-            <option value="EU">EU</option>
+    <form th:action="@{/history}" action="#" method="post">
+        <select name="country">
+            <option th:each="country:${countries}"
+                    th:value="${country}"
+                    th:text="${country}">
         </select>
         <p>
-            <input type="submit" value="Show yesterday rates" />
+            <input type="submit" value="history" />
         </p>
     </form>
+
+    <form th:action="@{/}" action="#" method="post">
+        <select name="country">
+            <option th:each="country:${countries}"
+                    th:value="${country}"
+                    th:text="${country}">
+        </select>
+
+        <p>
+            <input type="text" name="amount"/>
+            <input type="submit" value="calculate" />
+            <lable th:text="${res}"></lable>
+        </p>
+    </form>
+    <table>
+        <tbody>
+        <th> Currency </th>
+        <th> Rate </th>
+        <tr th:each="rate : ${rates}">
+            <td th:text="${rate.Ccy}">currency</td>
+            <td th:text="${rate.Amt}">rate</td>
+        </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>

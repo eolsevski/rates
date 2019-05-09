@@ -7,13 +7,13 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Getter
 @Setter
 @Entity
+@Table(name = "FxRates" )
 public class FxRates {
     @Id
     @GeneratedValue

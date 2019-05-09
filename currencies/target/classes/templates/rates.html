@@ -8,7 +8,8 @@
     <link href="../static/css/theme.css" th:href="@{/css/theme.css}" rel="stylesheet" />
 </head>
 <body>
-<h3>Rates</h3>
+
+<h3>Rates of <span th:text="${currency}"></span></h3>
 
 <form th:action="@{/}" action="#" method="get">
     <p>
